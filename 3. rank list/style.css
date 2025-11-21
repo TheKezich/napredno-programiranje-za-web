@@ -1,0 +1,9 @@
+.table {
+  border: 1px solid #000000;
+  border-style: solid ;
+  border-color: black;
+
+
+}
+
+  table:hover {background-color: #D6EEEE;}
