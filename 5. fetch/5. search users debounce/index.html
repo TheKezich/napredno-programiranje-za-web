@@ -7,9 +7,11 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <h1>Users search</h1>
-    <input type="text" id="user-id" placeholder="Enter user id">
-    <button onclick="getUserById()">Search user by id</button>
-    <button onclick="getAllUsers()">Get all users</button>
+    <input type="text" id="user-name-input" oninput="searchUsers()">
+    <button onclick="searchUsers()">Search users</button>
+    <p id="searh-result-p"></p>
+    <table id="users-table">
+        
+    </table>
 </body>
 </html>
