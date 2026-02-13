@@ -5,13 +5,30 @@
     <body>
         <%- include('./shared/header.ejs') %>
             <main>
-                <h1>Hi from index</h1>
+                <section class="products-section">
+                    <div class="add-new-product-div containter">
+                        <div class="products-info-div">
+                            <h1>Products</h1>
+                            <p>Menage your inventory, prices,
+                                and stock levels.</p>
+                        </div>
+                        <button class="add-new-product-btn">+ Add New Product</button>
+                    </div>
+                </section>
+                <section class="products-section">
+                    <div class="search-products-div containter">
+                        <input class="" type="text" placeholder="Search products by name">
+                        <select name="" id="">
+                            <option value="1">Category placeholder 1</option>
+                            <option value="2">Category placeholder 2</option>
+                        </select>
+                    </div>
+                </section>
+
+
+
             </main>
             <%- include('./shared/footer.ejs') %>
-
-            
- 
-
     </body>
 
 </html>
