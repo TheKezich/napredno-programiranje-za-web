@@ -1,6 +1,6 @@
 .products-section {
     background-color: var(--color6);
-    padding: calc(30rem/16) 20px;
+    padding: calc(20rem/16) 0;
 }
 
 .container {
@@ -8,35 +8,64 @@
     max-width: 1800px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.add-new-product-div {
+.products-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: calc(30rem/16) 20px;
-    align-self: center;
-
-
+    justify-self: center;
 }
 
 .add-new-product-btn {
-    padding: 12px 15px;
+    padding: 15px 20px;
     background-color: var(--primary);
-    border-style: solid;
-    border-width: 0px;
+    border: none;
+    border-radius: 10px;
     color: white;
-    border-radius: 7px;
     font-family: var(--main-font);
 }
 
 .search-products-div {
     padding: calc(15rem/16) 20px;
     background-color: white;
-    border: 1px var(--color5) solid;
+    border: 1px solid var(--color5);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    max-width: 1760px;
-    align-items: center;
+}
+
+.form-input {
+    padding: calc(10rem/16) 12px;
+    border-radius: 4px;
+    border: 1px solid var(--color5);
+}
+
+.products-table th {
+    text-align: left;
+    padding: 10px 15px;
+    font-size: var(--font-size-3);
+    color: var(--color7);
+    font-weight: 600;
+}
+
+.products-table {
+    border: 1px solid var(--color5);
+    border-radius: 12px;
+    border-collapse: collapse;
+}
+
+.products-table thead tr {
+    background-color: var(--color6);
+}
+
+.products-table {
+    background-color: white;
+}
+
+.products-table tbody tr td {
+    padding: 13px 18px;
 }
