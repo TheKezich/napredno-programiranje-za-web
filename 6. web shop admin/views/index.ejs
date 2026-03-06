@@ -34,22 +34,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>NVDIA RTX 4060</td>
-                                    <td>GPU</td>
-                                    <td>4</td>
-                                    <td>2000.00$</td>
-                                    <td>In Stock</td>
-                                    <td>Edit</td>
+                                <% products.forEach(element => { %>
+                                 <tr>
+                                    <td><%= element.name %></td>
+                                    <td>category placeholder</td>
+                                    <td><%= element.stock %></td>
+                                    <td><%= element.price  %></td>
+                                    <td>in stock placeholder</td>
+                                    <td>
+                                        <a href="products/edit?id=1">Edit</a>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>NVDIA RTX 4060</td>
-                                    <td>GPU</td>
-                                    <td>4</td>
-                                    <td>2000.00$</td>
-                                    <td>In Stock</td>
-                                    <td>Edit</td>
-                                </tr>
+                                <% }) %>
                             </tbody>
                         </table>
                     </div>
