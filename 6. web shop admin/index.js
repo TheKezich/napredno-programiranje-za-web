@@ -16,7 +16,12 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   try {
-    const currentPage = Number(req.query.page);
+    let currentPage
+    if(isNaN(Number(req.query.page))) {
+      currentPage = 1
+    } else { 
+       currentPage = Number(req.query.page)
+    }
     const offset = (currentPage - 1) * appConstants.productsperPage;
     const [products] = await dbConnection.query(
       `select name, price, stock
