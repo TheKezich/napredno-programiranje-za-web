@@ -39,6 +39,8 @@ app.get("/", async (req, res) => {
     res.render("index", {
       pageName: "Products",
       products: products,
+      currentPage: currentPage,
+      pagesCount: pagesCount,
     });
   } catch (error) {
     console.log("error executing query", error);
