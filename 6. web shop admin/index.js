@@ -13,9 +13,9 @@ const dbConnection = await mysql.createConnection({
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
 app.get("/", async (req, res) => {
-  try {
+
+try {
     let currentPage
     if(isNaN(Number(req.query.page))) {
       currentPage = 1
@@ -53,5 +53,10 @@ app.get("/orders", (req, res) => {
 app.get("/users", (req, res) => {
   res.render("users", { pageName: "Users" });
 });
+
+app.get("/create-product", (req, res) => { 
+  res.render("create-product", { pageName: "Create Product" });
+});
+
 
 app.listen(3001);
