@@ -7,6 +7,7 @@
     --color5:#cacaca;
     --color6: #eeeeee;
     --color7: #999999;
+    
     --main-font: "Roboto";
     --font-size-1: calc(10rem/16);
     --font-size-2: calc(12rem/16);
@@ -25,4 +26,20 @@ body {
 h1, h2, h3, h4, h5,h6, p {
     padding: 0;
     margin: 0;
+}
+
+.page-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.default-btn {
+  padding: 15px 20px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: var(--main-font);
+  text-decoration: none;
 }

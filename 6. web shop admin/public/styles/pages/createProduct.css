@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-product-form {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  color: var(--color7);
+}
+
+.form-text-input {
+  background-color: var(--color3);
+  padding: 10px 14px;
+  border: 1px solid var(--color7);
+  border-radius: 4px;
+  font-size: var(--font-size-4);
+}
+

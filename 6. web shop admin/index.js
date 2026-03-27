@@ -13,34 +13,41 @@ const dbConnection = await mysql.createConnection({
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.get("/", async (req, res) => {
 
-try {
-    let currentPage
-    if(isNaN(Number(req.query.page))) {
-      currentPage = 1
-    } else { 
-       currentPage = Number(req.query.page)
+// middleware je funkcija koja se izvrsava izmedju trenutka kada server primi zahtev i trenutka kada server posalje odgovor
+app.use((req, res, next) => {
+  res.app.locals.pageStyles = []
+  next()
+})
+
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/", async (req, res) => {
+  try {
+    let currentPage;
+    if (isNaN(Number(req.query.page))) {
+      currentPage = 1;
+    } else {
+      currentPage = Number(req.query.page);
     }
-    const offset = (currentPage - 1) * appConstants.productsperPage;
+    const offset = (currentPage - 1) * appConstants.productsPerPage;
     const [products] = await dbConnection.query(
       `select name, price, stock
-        from product
-        limit ${appConstants.productsperPage} offset ${offset};`,
+       from product
+       limit ${appConstants.productsPerPage} offset ${offset};`,
     );
     const [productsCountDbResponse] = await dbConnection.query(
       `
       select count(*) as count
       from product;`,
     );
-    const productsCount = productsCountDbResponse[0].count
-    const pagesCount = Math.ceil(productsCountDbResponse[0].count / appConstants.productsperPage);
-    console.log(productsCountDbResponse[0].count)
+    const productsCount = productsCountDbResponse[0].count;
+    const pagesCount = Math.ceil(productsCount / appConstants.productsPerPage);
     res.render("index", {
       pageName: "Products",
       products: products,
       currentPage: currentPage,
-      pagesCount: pagesCount,
+      pagesCount: pagesCount
     });
   } catch (error) {
     console.log("error executing query", error);
@@ -54,9 +61,20 @@ app.get("/users", (req, res) => {
   res.render("users", { pageName: "Users" });
 });
 
-app.get("/create-product", (req, res) => { 
-  res.render("create-product", { pageName: "Create Product" });
-});
+app.get("/products/create", (req, res) => {
+  res.render("createProduct");
+})
 
+app.post("/products/create", async (req, res) => {
+  res.render("createProduct");
+  const product = req.body;
+})
+  
 
 app.listen(3001);
+
+const names = [];
+
+names.forEach((item) => {
+  console.log(item)
+})
