@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5,h6, p {
   text-decoration: none;
 }
 
+
 .container {
   width: 100%;
   max-width: 1800px;
@@ -56,9 +57,8 @@ h1, h2, h3, h4, h5,h6, p {
 .center-div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 80vh;
-    gap: 20px;
+    gap: 10px;
 }
-

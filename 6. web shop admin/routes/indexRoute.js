@@ -6,8 +6,5 @@ import { appConstants } from '../config/appConstants.js'
 export const router = express.Router()
 
 router.get("/", async (req, res) => {
-    res.render("index");
+    res.render("index")
 });
-
-
-

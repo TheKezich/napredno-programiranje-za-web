@@ -10,7 +10,7 @@
                         <div class="container">
                             <h1>Create New Product</h1>
                             <p>Create new product that will be saved to db.</p>
-                            <form method="post" class="add-product-form">
+                            <form method="post" class="add-product-form" >
                                 <div class="form-input-div">
                                     <label class="form-label" for="product-name">Product name</label>
                                     <input class="form-text-input" type="text" id="product-name" name="name">
@@ -32,7 +32,12 @@
                                     <textarea class="form-text-area" name="description" id="product-desc" rows="4"></textarea>
                                 </div>
                                 <button class="default-btn" type="submit">Add Product</button>
+                                <!-- ako primjenimo klasu i dodamo style u d -->
+                                <% if (locals.hasValidationErrors === true) { %>
+                                <p class="validation-error-p">Please fix the errors above.</p>
+                            <% } %>
                             </form>
+                            
                         </div>
                     </section>
                 </main>

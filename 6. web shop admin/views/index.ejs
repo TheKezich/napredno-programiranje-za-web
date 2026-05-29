@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <% locals.pageStyles.push("/styles/pages/index.css") %>
-<%- include('./shared/head.ejs') %>
+    <%- include('./shared/head.ejs') %>
 
-    <body>
-        <%- include('./shared/header.ejs') %>
-            <main>
-                <section class="">
-                    <div class="center-div">
-                        <h1>Dashboard</h1>
-                        <p>Welcome to your shop admin dashboard</p>
-
-                    </div>
-                </section>
-            </main>
-            <%- include('./shared/footer.ejs') %>
-    </body>
+        <body>
+            <%- include('./shared/header.ejs') %>
+                <main>
+                    <section>
+                            <div class="center-div">
+                                <h1>Web shop admin portal</h1>
+                                <p>Na ovom site-u možete administrirati: proizvode, narudžbe, korisnike...</p>
+                        </div>
+                    </section>
+                </main>
+                <%- include('./shared/footer.ejs') %>
+        </body>
 
 </html>

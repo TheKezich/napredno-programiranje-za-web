@@ -37,3 +37,9 @@
 .form-text-area {
   background-color: var(--color3);
 }
+
+.validation-error-p {
+  color: red;
+  margin-top: 10px;
+}
+
