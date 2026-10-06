@@ -41,7 +41,7 @@ router.get("/", async (req, res) => {
 
 
 router.get("/create", (req, res) => {
-  res.render("createProduct");
+  res.render("create-product");
 })
 
 router.post("/create", async (req, res) => {
@@ -49,10 +49,9 @@ router.post("/create", async (req, res) => {
   const product = req.body;
   const validateProductResult = addNewProductSchema.safeParse(product)
   if (validateProductResult.success === false) {
-    res.render("createProduct",{hasValidationErrors: true} )
+    res.render("create-product", { hasValidationErrors: true })
     return
   }
-
   const insertNewProductSql =
     `insert into product(name, price, stock, category_id, description)
     values 
@@ -65,7 +64,7 @@ router.post("/create", async (req, res) => {
     );`
   try {
     const [insertProductDbResponse] = await dbConnection.query(insertNewProductSql)
-    res.render("createProduct");
+    res.render("create-product");
   } catch (error) {
     console.log(error)
     res.render("server-error")
