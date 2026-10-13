@@ -20,5 +20,29 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/details", async (req, res) => {
-  res.render("order-details", { pageName: "Order details" })
+  const orderId = Number(req.query.id);
+      if(Number.isInteger(orderId) && orderId > 0) {
+        const [orderDetails] = await dbConnection.query(
+    `select uo.full_name as fullName,
+  oi.quantity,
+  oi.price,
+  p.id,
+  p.name,
+  uo.street,
+  uo.zip_code,
+  uo.city,
+  uo.phone,
+  uo.payment_type as paymentTipe,
+  uo.status,
+  uo.order_date as orderDate
+  from user_order as uo
+  join order_item as oi on oi.order_id = uo.id
+  join product as p on oi.product_id = p.id
+  where uo.id = ${orderId};`,
+  );
+  res.render("order-details", { pageName: "Order details"})
+      }else {
+        res.render("server-error", { pageName: "Server error"})
+      }
+  
 })
