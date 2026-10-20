@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
 router.get("/details", async (req, res) => {
   const orderId = Number(req.query.id);
       if(Number.isInteger(orderId) && orderId > 0) {
-        const [orderDetails] = await dbConnection.query(
+        const [orderDetailsDbResult] = await dbConnection.query(
     `select uo.full_name as fullName,
   oi.quantity,
   oi.price,
@@ -40,6 +40,32 @@ router.get("/details", async (req, res) => {
   join product as p on oi.product_id = p.id
   where uo.id = ${orderId};`,
   );
+  if(orderDetailsDbResult.length === 0) {
+    res.render("server-error", { pageName: "Server error"})
+  }
+const orderDetails = {
+  fullName: orderDetailsDbResult[0].fullName,
+  street: orderDetailsDbResult[0].street,
+  city: orderDetailsDbResult[0].city,
+  phone: orderDetailsDbResult[0].phone,
+  zipCode: orderDetailsDbResult[0].zipCode,
+  paymentType: orderDetailsDbResult[0].paymentType,
+  status: orderDetailsDbResult[0].status,
+  orderDate: orderDetailsDbResult[0].orderDate,
+  items: []
+}
+ for (let index = 0; index < orderDetailsDbResult.length; index++) {
+  const orderDetailItem = orderDetailsDbResult[index];
+  orderDetails.items.push({
+    name: orderDetailItem.name,
+    price: orderDetailItem.price,
+    quantity: orderDetailItem.quantity})
+ }
+
+res.render("ordewr-details", {
+  pagename: "Order details",
+  orderDetails: orderDetailsDbResult
+})
   res.render("order-details", { pageName: "Order details"})
       }else {
         res.render("server-error", { pageName: "Server error"})
