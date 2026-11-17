@@ -19,28 +19,25 @@
                             </thead>
                             <tbody>
                                 <% orders.forEach(element=> { %>
-                                    
-                                        <tr>
-                                            <td>
-                                                <a href="/orders/details?id=<%= element.id %>">
-                                                    <%= element.id %>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <%= element.fullName %>
-                                            </td>
-                                            <td>
-                                                <%= element.status %>
-                                            </td>
-                                            <td>
-                                                <%= element.paymentType %>
-                                            </td>
-                                            <td>
-                                                <%= element.orderDate %>
-                                            </td>
-                                        </tr>
-                                    
-
+                                    <tr>
+                                        <td>
+                                            <a href="/orders/order-details?id=<%= element.id %>">
+                                                <%= element.id %>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <%= element.fullName %>
+                                        </td>
+                                        <td>
+                                            <%= element.status %>
+                                        </td>
+                                        <td>
+                                            <%= element.paymentType %>
+                                        </td>
+                                        <td>
+                                            <%= element.orderDate %>
+                                        </td>
+                                    </tr>
                                     <% }) %>
                             </tbody>
                         </table>
